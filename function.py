@@ -20,6 +20,6 @@ def lambda_handler(event, context):
 
     # iterate through the response to print just the instance id of stopped instances
     for instance in instance_status_response['InstanceStatuses']:
-        print (instance['InstanceId'])
+        print ("Stopped Instances ==>" + instance['InstanceId'])
 
     return 'End Function'
