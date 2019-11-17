@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: A starter AWS Lambda function.
+Resources:
+  GetStoppedInstances:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: function.lambda_handler
+      Runtime: python2.7
+      CodeUri: .
+      Description: A starter AWS Lambda function.
+      MemorySize: 128
+      Timeout: 3
+      Policies:
+        - ReadOnlyAccess # AWS Managed Policy
+        - Version: '2012-10-17' # Inline Policy
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:GetObjectACL
+              Resource: '*'
